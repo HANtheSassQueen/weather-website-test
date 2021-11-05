@@ -19,8 +19,10 @@ weatherForm.addEventListener('submit', (e) => {
                 messageOne.textContent = data.error
             }
             else {
+                const time = new Date().toLocaleTimeString()
+                const date = new Date().toLocaleDateString()
                 messageOne.textContent = data.location
-                messageTwo.textContent = data.forecastData
+                messageTwo.textContent = 'At '+ time +' on '+ date + ', '+data.forecastData
             }
         })
     })
