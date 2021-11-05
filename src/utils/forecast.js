@@ -12,7 +12,8 @@ const forecast = (latitude, longitude, callback) => {
             callback('Unable to find location', undefined)
         }
         else {
-            const time = body.current.observation_time
+            const time = new Date().toLocaleTimeString()
+            const day = new Date().toLocaleDateString()
             const conditions = body.current.weather_descriptions[0]
             const temperature = body.current.temperature
             const feelslike = body.current.feelslike
@@ -20,7 +21,7 @@ const forecast = (latitude, longitude, callback) => {
             const windSpeed = body.current.wind_speed
             const windDir = body.current.wind_dir
 
-            const data = 'At '+time+', It is ' + conditions + '. It is currently ' + temperature + ' degrees out, it feels like ' + feelslike + ' degrees. Current humidity is ' + humidity + '%. Wind Speeds are currently ' + windSpeed + ' MPH coming from the '+ windDir + '.'
+            const data = 'At '+ time +' on '+ day +', It is ' + conditions + '. It is currently ' + temperature + ' degrees out, it feels like ' + feelslike + ' degrees. Current humidity is ' + humidity + '%. Wind Speeds are currently ' + windSpeed + ' MPH coming from the '+ windDir + '.'
             callback(undefined, data)
         }
 
