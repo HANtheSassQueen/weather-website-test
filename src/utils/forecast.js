@@ -20,11 +20,6 @@ const forecast = (latitude, longitude, callback) => {
             const windSpeed = body.current.wind_speed
             const windDir = body.current.wind_dir
 
-            //observation_time
-            //humidity (place percentage in front)
-            //wind_speed
-            //wind_dir (string)
-
             const data = 'At '+time+', It is ' + conditions + '. It is currently ' + temperature + ' degrees out, it feels like ' + feelslike + ' degrees. Current humidity is ' + humidity + '%. Wind Speeds are currently ' + windSpeed + ' MPH coming from the '+ windDir + '.'
             callback(undefined, data)
         }
